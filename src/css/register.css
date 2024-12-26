@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+* {
+    border: 0;
+    margin: 0;
+    font-size: 20px;
+    font-family: "Iceberg", serif;
+}
+:root {
+    --bg-color: #eeeeee;
+    --fg-color: #222831;
+    --primary-color: #0092ca;
+    --secondary-color: #393e46;
+}
+body {
+    background-color: var(--bg-color);
+    padding: 0px 20px;
+    width: calc(100vw - 40px);
+    display: grid;
+    grid-template-columns:  calc((100vw - 40px) / 12) auto auto auto
+                            auto auto auto auto
+                            auto auto auto auto;
+    column-width: calc((100vw - 40px) / 12);
+    grid-template-rows: auto auto;
+    gap: 100px 0;
+    align-items: center;
+}
+nav {
+    background-color: var(--secondary-color);
+    position: relative;
+    top: 0;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: 3rem;
+    grid-column-start: 1;
+    grid-column-end: 13;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: start;
+}
+nav h1 {
+    font-size: 30px;
+    color: var(--bg-color);
+}
+form {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 13;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 60%;
+    height: 80%;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 20px;
+}
+form input {
+    height: 2rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    outline: 1px solid var(--secondary-color);
+    transition: 400ms ease-in-out;
+}
+form input:hover {
+    outline: 2px solid var(--primary-color);
+}
+form input:focus {
+    outline: 2px solid var(--primary-color);
+}
+.btns {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    height: fit-content;
+    gap: 20px;
+    width: 80%;
+    justify-content: flex-start;
+}
+form button {
+    width: 7rem;
+    height: 2.5rem;
+    background-color: var(--fg-color);
+    color: var(--bg-color);
+    border-radius: 5px;
+    text-align: center;
+    transition: 500ms ease-in-out;
+}
+form button:hover {
+    background-color: var(--primary-color);
+}
+.register {
+    width: 7rem;
+    height: 2.5rem;
+    background-color: var(--fg-color);
+    color: var(--bg-color);
+    border-radius: 5px;
+    text-align: center;
+    transition: 500ms ease-in-out;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.name, .email, .pass {
+    border: none;
+    display: grid;
+    width: 80%;
+    gap: 10px;
+}
+.name , .pass {
+    grid-template-columns: auto auto;
+}
+.email input {
+    width: calc(100% - 20px);
+}
+.name input, .pass input {
+    width: calc(100% - 20px);
+}
+@media screen and (max-width: 800px) {
+    * {
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .container {
+        width: 90%;
+    }
+}

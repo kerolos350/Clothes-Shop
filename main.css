@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+:root {
+    --bg-color: #eeeeee;
+    --fg-color: #222831;
+    --primary-color: #0092ca;
+    --secondary-color: #393e46;
+    --Font: 20px;
+    --h1: 60px;
+}
+* {
+    padding: 0;
+    margin: 0;
+    font-size: var(--Font);
+    font-family: "Iceberg", serif;
+}
+.hidden {
+    display: none;
+}
+.show {
+    display: flex;
+}
+body {
+    background-color: var(--bg-color);
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    user-select: none;
+}
+section {
+    width: calc(100% - 40px);
+    height: 100vh;
+    padding: 0px 20px;
+    grid-column-start: 1;
+    grid-column-end: 13;
+    display: grid;
+    grid-template-columns:  repeat(12, calc((100% - 110px) / 12));
+    gap: 10px;
+}
+.hero {
+    background-image: linear-gradient(180deg, #0061a1a1 -50%, #0f101350 100%), url(/src/img/main-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-template-rows: 4rem auto;
+    background-attachment: fixed;
+    background-position: center center;
+}
+.hero nav {
+    position: relative;
+    left: -20px;
+    width: calc(100vw - 80px);
+    height: 6rem;
+    grid-column-start: 1;
+    grid-column-end: 13;
+    display: grid;
+    grid-template-columns: repeat(12, calc((100% - 110px) / 12));
+    gap: 10px;
+    align-items: center;
+    background-color: #2228312f;
+    padding: 0px 40px;
+}
+.logo {
+    display: grid;
+    height: 4rem;
+    width: fit-content;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.main-menu {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    display: flex;
+    justify-content: flex-start;
+    width: fit-content;
+    gap: 20px;
+}
+.main-menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+}
+.main-menu a:hover {
+    color: white;
+}
+.sec-menu {
+    display: flex;
+    grid-column-start: 8;
+    grid-column-end: 10;
+    justify-content: flex-end;
+    width: fit-content;
+    gap: 20px;
+}
+.sec-menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+}
+.sec-menu a:hover {
+    color: white;
+}
+#cart-Check:checked ~ .cart-show {
+    display: flex;
+    transform: translateX(-500px);
+}
+#cart-Check:checked + .cart {
+    content: url(/src/svg/x.svg);
+    z-index: 101;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+}
+.cart-menu {
+    display: flex;
+    grid-column-start: 10;
+    grid-column-end: 12;
+}
+.cart {
+    display: flex;
+    justify-content: flex-end;
+    width: fit-content;
+    gap: 10px;
+    align-items: center;
+    background: none;
+    border: none;
+}
+.cart span {
+    align-items: center;
+    color: black;
+    font-size: 1rem;
+    font-weight: 800;
+}
+.cart img {
+    height: 2rem;
+    display: flex;
+}
+.cart-count {
+    position: relative;
+    top: -15px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+.cart-items {
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    right: -500px;
+    z-index: 100;
+    height: 100vh;
+    width: 500px;
+    background-color: var(--bg-color);
+    transition: display 0s ease-in-out 0ms, transform 500ms ease-in-out 100ms;
+}
+@media screen and (max-width: 768px) {
+    #cart-Check:checked ~ .cart-show {
+        transform: translateX(-90%);
+    }
+    .cart-items {
+        right: -90%;
+        width: 90%;
+    }
+}
+nav label {
+    grid-column-start: 12;
+    grid-column-end: 13;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    border: 1px solid var(--secondary-color);
+    background-color: #d4d4d4;
+    border-radius: 50%;
+    margin-left: auto;
+}
+.avatar img {
+    width: 2rem;
+    height: 2rem;
+    filter: brightness(0) invert(1);
+}
+#avatar-Check, #cart-Check {
+    display: none;
+}
+#avatar-Check:checked + .avatar-menu {
+    display: flex;
+    transition: 100ms ease-in-out;
+    animation: appear 200ms ease-in-out;
+}
+.avatar-menu {
+    display: none;
+    position: absolute;
+    top: 5rem;
+    right: 2rem;
+    width: fit-content;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    border: 1px solid var(--secondary-color);
+    z-index: 1;
+    text-align: center;
+}
+.avatar-menu a {
+    text-decoration: none;
+    color: var(--fg-color);
+    padding: 5px 10px;
+    border-bottom: 1px solid var(--secondary-color);
+    transition: all 300ms ease-in-out;
+}
+.avatar-menu a:hover {
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
+}
+.avatar-menu a:last-child {
+    border: none;
+}
+@keyframes appear {
+    0% {
+        opacity: 0;
+        height: 0px;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.75);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        height: fit-content;
+    }
+}
+.hero-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-column-start: 2;
+    grid-column-end: 9;
+    height: fit-content;
+    align-self: center;
+    gap: 30px;
+}
+.hero-info h1 {
+    font-size: var(--h1);
+    width: 60%;
+    color: var(--primary-color);
+    text-shadow: 0px 0px 5px var(--fg-color);
+}
+.hero-info p {
+    font-size: 1.5rem;
+    color: var(--bg-color);
+}
+.hero-buttons {
+    display: flex;
+    height: fit-content;
+    gap: 20px;
+}
+.shop-btn, .about-btn {
+    text-decoration: none;
+    font-size: 1rem;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 20px;
+}
+.shop-btn {
+    border: 2px solid var(--bg-color);
+    background-color: var(--bg-color);
+    color: black;
+}
+.shop-btn:hover {
+    border: 2px solid black;
+    background-color: black;
+    color: var(--bg-color);
+}
+.about-btn {
+    border: 2px solid var(--bg-color);
+    color: var(--bg-color);
+}
+.about-btn:hover {
+    border: 2px solid var(--bg-color);
+    background-color: var(--bg-color);
+    color: black;
+}
