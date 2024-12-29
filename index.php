@@ -6,6 +6,7 @@
     <title>Clothes Shop</title>
     <link rel="stylesheet" href="main.css">
     <link rel="shortcut icon" href="src/identity/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <section class="hero">
@@ -49,7 +50,7 @@
                 </div>
             </div>
             <label class="avatar" for="avatar-Check">
-                <img id="avatar-img" src="/src/svg/avatar.svg" alt="user avatar">
+                <img id="avatar-img" src="/src/img/avatars/default.png" alt="user avatar">
             </label>
             <input type="checkbox" name="avatar-Check" id="avatar-Check">
             <div id="avatar-menu" class="avatar-menu">
@@ -68,10 +69,201 @@
             </div>
         </div>
     </section>
-    <section class="brans">
-        <div id="brans-container"></div>
+    <section class="brands">
+        <div id="brands-container">
+            <div class="brand-images">
+                <?php
+                    $path = "./src/svg/brands";
+                    foreach (scandir($path) as $file) {
+                        if ($file !== '.' && $file !== '..') {
+                            echo '<img src="/src/svg/brands/'.$file.'" alt="'.$file.'">';
+                        }
+                    }
+                ?>
+            </div>
+            <div class="brand-images">
+                <?php
+                    $path = "./src/svg/brands";
+                    foreach (scandir($path) as $file) {
+                        if ($file !== '.' && $file !== '..') {
+                            echo '<img src="/src/svg/brands/'.$file.'" alt="'.$file.'">';
+                        }
+                    }
+                ?>
+            </div>
+        </div>
     </section>
-    <section class=""></section>
+    <section class="featured">
+        <h2>Featured Products</h2>
+        <div class="line"></div>
+        <?php
+            $jsonData = file_get_contents('./src/json/products.json');
+            $products = json_decode($jsonData, true);
+            
+            $featuredProducts = array_filter($products['products'], function($product) {
+                return $product['featured'] === true;
+            });
+
+            foreach ($featuredProducts as $product) {
+                echo '<div class="product">';
+                echo "\r\n";
+                    echo '<div class="product-img">';
+                        echo'<img src="'.$product['image_url'].'">';
+                    echo '</div>';
+                    echo "\r\n";
+                    echo '<p class="product-name">'.$product['name'].'</p>';
+                    echo "\r\n";
+                    echo '<div class="product-categories">';
+                    echo "\r\n";
+                        foreach ($product['categories'] as $category) {
+                            echo '<p class="product-category">'.$category.'</p>';
+                            echo "\r\n";
+                        }
+                    echo '</div>';
+                    echo "\r\n";
+                    if ($product['price']['sale'] === "0.00" or $product['price']['sale'] === "0.0" or $product['price']['sale'] === "0") {
+                        echo '<p class="price product-price-original">'.$product['price']['original'].'</p>';
+                        echo "\r\n";
+                    }else {
+                        echo '<div class="product-price">';
+                        echo "\r\n";
+                            echo '<p class="product-price-original">';
+                                echo '<span class="old-price">'.$product['price']['original'].' EGP</span>';
+                                echo '<span class="price"> - </span>';
+                                echo '<span class="price">'.$product['price']['sale'].' EGP</span>';
+                            echo '</p>';
+                            echo "\r\n";
+                        echo '</div>';
+                        echo "\r\n";
+                    }
+                    echo '<div class="colors">';
+                    echo "\r\n";
+                        foreach ($product['colors'] as $color){
+                            echo '<p class="product-color">'.ucfirst($color['color']).'</p>';
+                            echo "\r\n";
+                        }
+                    echo '</div>';
+                    echo "\r\n";
+                    echo '<div class="reviews">';
+                    echo "\r\n";
+                        if ($product['review'] == 0.5) {
+                            echo '<span class="fa fa-star-half-o"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                        } elseif ($product['review'] == 1) {
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                        } elseif ($product['review'] == 1.5) {
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star-half-o"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                        } elseif ($product['review'] == 2) {
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                        } elseif ($product['review'] == 2.5) {
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star-half-o"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                        } elseif ($product['review'] == 3) {
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                        } elseif ($product['review'] == 3.5) {
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star-half-o"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                        } elseif ($product['review'] == 4) {
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star"></span>';
+                            echo "\r\n";
+                        } elseif ($product['review'] == 4.5) {
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star-half-o"></span>';
+                            echo "\r\n";
+                        } elseif ($product['review'] == 5) {
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                            echo '<span class="fa fa-star checked"></span>';
+                            echo "\r\n";
+                        }
+                    echo '</div>';
+                    echo "\r\n";
+                echo '</div>';
+                echo "\r\n";
+            }
+        ?>
+    </section>
     <section class=""></section>
     <section class=""></section>
     <script src="main.js"></script>

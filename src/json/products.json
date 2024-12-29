@@ -1,0 +1,235 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Laptop1",
+            "description": "A high-performance laptop for professionals.",
+            "price": {
+                "original": "1200.99",
+                "sale": "1000.00"
+            },
+            "categories": ["Electronics", "Computers"],
+            "stock": 25,
+            "colors": [
+                {
+                    "color": "gray",
+                    "quantity": 15
+                },{
+                    "color": "black",
+                    "quantity": 5
+                }
+            ],
+            "sizes": [],
+            "image_url": "/src/img/products/laptop.png",
+            "featured": true,
+            "review": 2
+        },{
+            "id": 1,
+            "name": "Laptop1",
+            "description": "A high-performance laptop for professionals.",
+            "price": {
+                "original": "1200.99",
+                "sale": "1000.00"
+            },
+            "categories": ["Electronics", "Computers"],
+            "stock": 25,
+            "colors": [
+                {
+                    "color": "gray",
+                    "quantity": 15
+                },{
+                    "color": "black",
+                    "quantity": 5
+                }
+            ],
+            "sizes": [],
+            "image_url": "/src/img/products/laptop.png",
+            "featured": true,
+            "review": 2
+        },{
+            "id": 1,
+            "name": "Laptop1",
+            "description": "A high-performance laptop for professionals.",
+            "price": {
+                "original": "1200.99",
+                "sale": "1000.00"
+            },
+            "categories": ["Electronics", "Computers"],
+            "stock": 25,
+            "colors": [
+                {
+                    "color": "gray",
+                    "quantity": 15
+                },{
+                    "color": "black",
+                    "quantity": 5
+                }
+            ],
+            "sizes": [],
+            "image_url": "/src/img/products/laptop.png",
+            "featured": true,
+            "review": 2
+        },{
+            "id": 1,
+            "name": "Laptop1",
+            "description": "A high-performance laptop for professionals.",
+            "price": {
+                "original": "1200.99",
+                "sale": "1000.00"
+            },
+            "categories": ["Electronics", "Computers"],
+            "stock": 25,
+            "colors": [
+                {
+                    "color": "gray",
+                    "quantity": 15
+                },{
+                    "color": "black",
+                    "quantity": 5
+                }
+            ],
+            "sizes": [],
+            "image_url": "/src/img/products/laptop.png",
+            "featured": true,
+            "review": 2
+        },{
+            "id": 1,
+            "name": "Laptop1",
+            "description": "A high-performance laptop for professionals.",
+            "price": {
+                "original": "1200.99",
+                "sale": "1000.00"
+            },
+            "categories": ["Electronics", "Computers"],
+            "stock": 25,
+            "colors": [
+                {
+                    "color": "gray",
+                    "quantity": 15
+                },{
+                    "color": "black",
+                    "quantity": 5
+                }
+            ],
+            "sizes": [],
+            "image_url": "/src/img/products/laptop.png",
+            "featured": true,
+            "review": 2
+        },{
+            "id": 1,
+            "name": "Laptop1",
+            "description": "A high-performance laptop for professionals.",
+            "price": {
+                "original": "1200.99",
+                "sale": "1000.00"
+            },
+            "categories": ["Electronics", "Computers"],
+            "stock": 25,
+            "colors": [
+                {
+                    "color": "gray",
+                    "quantity": 15
+                },{
+                    "color": "black",
+                    "quantity": 5
+                }
+            ],
+            "sizes": [],
+            "image_url": "/src/img/products/laptop.png",
+            "featured": true,
+            "review": 2
+        },{
+            "id": 1,
+            "name": "Laptop1",
+            "description": "A high-performance laptop for professionals.",
+            "price": {
+                "original": "1200.99",
+                "sale": "1000.00"
+            },
+            "categories": ["Electronics", "Computers"],
+            "stock": 25,
+            "colors": [
+                {
+                    "color": "gray",
+                    "quantity": 15
+                },{
+                    "color": "black",
+                    "quantity": 5
+                }
+            ],
+            "sizes": [],
+            "image_url": "/src/img/products/laptop.png",
+            "featured": true,
+            "review": 2
+        },{
+            "id": 1,
+            "name": "Laptop1",
+            "description": "A high-performance laptop for professionals.",
+            "price": {
+                "original": "1200.99",
+                "sale": "1000.00"
+            },
+            "categories": ["Electronics", "Computers"],
+            "stock": 25,
+            "colors": [
+                {
+                    "color": "gray",
+                    "quantity": 15
+                },{
+                    "color": "black",
+                    "quantity": 5
+                }
+            ],
+            "sizes": [],
+            "image_url": "/src/img/products/laptop.png",
+            "featured": true,
+            "review": 2
+        },{
+            "id": 1,
+            "name": "Laptop1",
+            "description": "A high-performance laptop for professionals.",
+            "price": {
+                "original": "1200.99",
+                "sale": "1000.00"
+            },
+            "categories": ["Electronics", "Computers"],
+            "stock": 25,
+            "colors": [
+                {
+                    "color": "gray",
+                    "quantity": 15
+                },{
+                    "color": "black",
+                    "quantity": 5
+                }
+            ],
+            "sizes": [],
+            "image_url": "/src/img/products/laptop.png",
+            "featured": true,
+            "review": 2
+        },{
+            "id": 1,
+            "name": "Laptop1",
+            "description": "A high-performance laptop for professionals.",
+            "price": {
+                "original": "1200.99",
+                "sale": "1000.00"
+            },
+            "categories": ["Electronics", "Computers"],
+            "stock": 25,
+            "colors": [
+                {
+                    "color": "gray",
+                    "quantity": 15
+                },{
+                    "color": "black",
+                    "quantity": 5
+                }
+            ],
+            "sizes": [],
+            "image_url": "/src/img/products/laptop.png",
+            "featured": true,
+            "review": 2
+        }
+    ]
+}
