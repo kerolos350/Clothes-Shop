@@ -62,5 +62,12 @@ function addToCart(id, name, img, price) {
         cartContainer.appendChild(item);
     };
 
+    var noProduct = document.getElementsByClassName('cart-empty');
+
+    noProduct[0].style.display = "none"
+    document.getElementById('check-btn').style.display = 'flex';
+    document.getElementById('cart-btn').style.display = 'flex';
+    document.getElementById('cont-shopping').style.display = 'none';
+
     
 }
