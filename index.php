@@ -31,9 +31,9 @@
                         <span id="total-money">0.00</span>
                         <span id="currency">EGP</span>
                     </p>
-                    <img src="/src/svg/cart.svg" alt="cart"><i class="cart-count">0</i></img>
+                    <img src="/src/svg/cart.svg" alt="cart"><i id="cart-counter" class="cart-count">0</i></img>
                 </label>
-                <div class="cart-items cart-show">
+                <div id="cart-menu" class="cart-items cart-show">
                     <div class="cart-lable">Shopping Cart</div>
                     <div id="cart-containers" class="hidden"></div>
                     <p class='cart-empty'>No products in the cart</p>
@@ -107,11 +107,18 @@
             foreach ($featuredProducts as $product) {
                 echo '<div class="product">';
                 echo "\r\n";
-                    echo '<div class="product-img">';
-                        echo'<img src="'.$product['image_url'].'">';
-                    echo '</div>';
+                echo'<img onclick="addToCart(\''.$product['id'].'\', \''.$product['name'].'\', \''.$product['image_url'].'\', \''.$product['price']['original'].'\')" class="add-to-cart" src="./src/svg/cart.svg">';
+                echo "\r\n";
+                    echo '<a href="./product?='.$product['id'].'" class="product-img">';
+                        if ($product['price']['sale'] !== "0.00" and $product['price']['sale'] !== "0.0" and $product['price']['sale'] !== "0") {
+                            echo'<p class="sale">Sale!</p>';
+                            echo "\r\n";
+                        };
+                        echo'<img class="image" src="'.$product['image_url'].'">';
+                        echo "\r\n";
+                    echo '</a>';
                     echo "\r\n";
-                    echo '<p class="product-name">'.$product['name'].'</p>';
+                    echo '<a href="./product?='.$product['id'].'" class="product-name">'.$product['name'].'</a>';
                     echo "\r\n";
                     echo '<div class="product-categories">';
                     echo "\r\n";
@@ -122,14 +129,14 @@
                     echo '</div>';
                     echo "\r\n";
                     if ($product['price']['sale'] === "0.00" or $product['price']['sale'] === "0.0" or $product['price']['sale'] === "0") {
-                        echo '<p class="price product-price-original">'.$product['price']['original'].'</p>';
+                        echo '<p class="price no-sale product-price-original">'.$product['price']['original'].' EGP</p>';
                         echo "\r\n";
                     }else {
                         echo '<div class="product-price">';
                         echo "\r\n";
                             echo '<p class="product-price-original">';
                                 echo '<span class="old-price">'.$product['price']['original'].' EGP</span>';
-                                echo '<span class="price"> - </span>';
+                                echo '<span class="price"> </span>';
                                 echo '<span class="price">'.$product['price']['sale'].' EGP</span>';
                             echo '</p>';
                             echo "\r\n";

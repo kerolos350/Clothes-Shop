@@ -6,7 +6,7 @@
             "description": "A high-performance laptop for professionals.",
             "price": {
                 "original": "1200.99",
-                "sale": "1000.00"
+                "sale": "0.00"
             },
             "categories": ["Electronics", "Computers"],
             "stock": 25,
@@ -24,8 +24,8 @@
             "featured": true,
             "review": 2
         },{
-            "id": 1,
-            "name": "Laptop1",
+            "id": 2,
+            "name": "Laptop2",
             "description": "A high-performance laptop for professionals.",
             "price": {
                 "original": "1200.99",
@@ -47,8 +47,8 @@
             "featured": true,
             "review": 2
         },{
-            "id": 1,
-            "name": "Laptop1",
+            "id": 3,
+            "name": "Laptop3",
             "description": "A high-performance laptop for professionals.",
             "price": {
                 "original": "1200.99",
